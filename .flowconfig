@@ -1,5 +1,3 @@
 [options]
 esproposal.export_star_as=enable
 suppress_comment=\\(.\\|\n\\)*@flow-ignore-line
-module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/LessModule.js.flow'
-module.name_mapper.extension='less' -> '<PROJECT_ROOT>/flow/LessModule.js.flow'

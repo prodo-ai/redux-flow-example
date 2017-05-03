@@ -3,6 +3,11 @@ import {decrement, increment} from "../counter";
 import {connect} from "react-redux";
 
 export const connectCounter = () =>
-  connect(state => ({counter: state.counter}), {increment, decrement})(Counter);
+  connect(state => ({counter: state.counter}), {
+    increment,
+    decrement,
+  });
 
-export default connectCounter();
+export const createConnectedCounter = () => connectCounter()(Counter);
+
+export default createConnectedCounter();
