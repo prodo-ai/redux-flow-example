@@ -31,7 +31,13 @@ const buttonStyle = {
   height: "2vw",
 };
 
-export default (props: any) => (
+export type Props = {
+  increment: (delta: number) => any,
+  decrement: (delta: number) => any,
+  counter: number,
+};
+
+export default (props: Props) => (
   <div id="counter" style={counterStyle}>
     <div id="value" style={valueStyle}>
       {props.counter}
