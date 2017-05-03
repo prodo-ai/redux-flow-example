@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+set -e
+set -u
+set -o pipefail
+
+watch=false
+if [[ $# -gt 0 && "$1" == '--watch' ]]; then
+  watch=true
+  shift
+fi
+
+ava_switches=('--color' '--verbose' '--timeout=60000')
+if (( $+CI )); then
+  ava_switches+=('--concurrency=4')
+fi
+
+if $watch; then
+  ava --watch ${ava_switches[@]} test/
+  exit
+fi
+
+exit=false
+success=true
+
+ava -- ${ava_switches[@]} test/ || success=false
+
+if ! $exit; then
+  echo "Running Flow..."
+  scripts/flow || success=false
+  echo
+
+  echo "Running ESLint..."
+  scripts/eslint && echo 'No errors.' || success=false
+  echo
+fi
+
+$success

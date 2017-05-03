@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+set -e
+set -u
+set -o pipefail
+
+function on_read {
+  while read; do
+    $@ || :
+    echo
+  done
+}
+
+watch=false
+if [[ $# -gt 0 && $1 == '--watch' ]]; then
+  watch=true
+  shift
+fi
+
+if (( $+CI )) && ! start_output="$(flow start --quiet --wait 2>&1)"; then
+  status_code=$?
+  if ! [[ $start_output =~ 'already a server running' ]]; then
+    exit $status_code
+  fi
+fi
+
+if $watch; then
+  flow $@ || :
+  fswatch -or src/ | on_read flow $@
+else
+  flow $@
+fi

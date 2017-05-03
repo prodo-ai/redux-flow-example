@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+set -e
+set -u
+set -o pipefail
+
+set -o nullglob
+
+if [[ $# -gt 0 && $1 == '--watch' ]]; then
+  shift
+  esw -w src/ test/ $@
+else
+  eslint src/ test/ $@
+fi
