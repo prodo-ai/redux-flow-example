@@ -34,12 +34,6 @@ module.exports = {
         use: ["react-hot-loader", "babel-loader"],
         include: [src],
       },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "less-loader"],
-        include: [src],
-      },
     ],
   },
 };
