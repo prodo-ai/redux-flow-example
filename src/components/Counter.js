@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 
 const counterStyle = {
@@ -29,7 +31,7 @@ const buttonStyle = {
   height: "2vw",
 };
 
-export default props => (
+export default (props: any) => (
   <div id="counter" style={counterStyle}>
     <div id="value" style={valueStyle}>
       {props.counter}

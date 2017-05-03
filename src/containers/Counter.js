@@ -1,3 +1,5 @@
+// @flow
+
 import Counter from "../components/Counter";
 import {decrement, increment} from "../counter";
 import {connect} from "react-redux";

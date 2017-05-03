@@ -1,3 +1,5 @@
+// @flow
+
 import Counter from "./containers/Counter";
 import {setupRedux} from "./store";
 import * as React from "react";

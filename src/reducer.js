@@ -1,3 +1,5 @@
+// @flow
+
 import {reducer as counterReducer} from "./counter";
 import {combineReducers} from "redux";
 

@@ -1,3 +1,5 @@
+// @flow
+
 import {reducer} from "./reducer";
 import {createStore} from "redux";
 

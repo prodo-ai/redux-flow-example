@@ -1,3 +1,5 @@
+// @flow
+
 import {increment} from "../src/counter";
 import {setupRedux} from "../src/store";
 import test from "ava";

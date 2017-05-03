@@ -1,3 +1,5 @@
+// @flow
+
 import {createConnectedCounter} from "../src/containers/Counter";
 import {setupRedux} from "../src/store";
 import test from "ava";

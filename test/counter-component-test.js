@@ -1,3 +1,5 @@
+// @flow
+
 import Counter from "../src/components/Counter";
 import test from "ava";
 import {shallow} from "enzyme";
